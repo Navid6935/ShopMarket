@@ -17,6 +17,7 @@ namespace ShopMarket.Data
         public DbSet<CategorytoProduct> categorytoProducts { get; set; }
         public DbSet<Product> products { get; set; }
         public DbSet<Item> items { get; set; }
+        public DbSet<Users> Userses { get; set; }
 
 
 

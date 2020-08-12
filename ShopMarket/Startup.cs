@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ShopMarket.Data;
+using ShopMarket.Data.Repositoreis;
 
 namespace ShopMarket
 {
@@ -31,6 +32,8 @@ namespace ShopMarket
             }); 
             #endregion
             services.AddControllersWithViews();
+            services.AddScoped<IGroupRepository, GroupRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
