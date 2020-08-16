@@ -9,7 +9,7 @@ namespace ShopMarket.Data.Repositoreis
    public interface IUserRepository
    {
        bool ISExistByEmail(string email);
-        //Users GetUserForLogin()
+       Users GetUserForLogin(string Email, string password);
         void AddUser(Users users);
 
     }
@@ -21,6 +21,9 @@ namespace ShopMarket.Data.Repositoreis
         {
             _context = context;
         }
+
+
+
         public void AddUser(Users users)
         {
             _context.Add(users);
@@ -30,6 +33,10 @@ namespace ShopMarket.Data.Repositoreis
         public bool ISExistByEmail(string email)
         {
             return _context.Userses.Any(u => u.Email == email);
+        }
+        public Users GetUserForLogin(string Email, string password)
+        {
+            return _context.Userses.SingleOrDefault(u => u.Email == Email && u.Password == password);    
         }
     }
 }
